@@ -1,5 +1,4 @@
-FROM ubuntu:18.04
-MAINTAINER Max Gonzih <gonzih at gmail dot com>
+FROM debian:bullseye-slim
 
 ENV USER csgo
 ENV HOME /home/$USER
@@ -7,19 +6,13 @@ ENV SERVER $HOME/hlserver
 
 RUN apt-get -y update \
     && apt-get -y upgrade \
-    && apt-get -y install lib32gcc1 curl net-tools lib32stdc++6 locales \
-    && locale-gen en_US.UTF-8 \
-    && update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
+    && apt-get -y install curl net-tools lib32stdc++6 locales \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && useradd $USER \
     && mkdir $HOME \
     && chown $USER:$USER $HOME \
     && mkdir $SERVER
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
 
 ADD ./csgo_ds.txt $SERVER/csgo_ds.txt
 ADD ./update.sh $SERVER/update.sh
