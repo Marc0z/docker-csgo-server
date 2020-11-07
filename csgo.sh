@@ -1,3 +1,3 @@
 #!/bin/sh
-cd $HOME/hlserver
-csgo/srcds_run -game csgo -tickrate 128 -autoupdate -steam_dir ~/hlserver -steamcmd_script ~/hlserver/csgo_ds.txt $@
+cd $SERVER
+csgo/srcds_run -game csgo -tickrate 128 -autoupdate -steam_dir /var/srv -steamcmd_script /var/srv/csgo_ds.txt $@
