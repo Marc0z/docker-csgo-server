@@ -1,6 +1,6 @@
 ## Counter Strike Global Offensive + Docker
 
-# fork edit
+## fork changes
 
 Rewrote the project to fit my usecase. Cant handle multi gb docker images on server.
 
@@ -25,8 +25,8 @@ CS:GO server in docker with 128 tick enabled by default.
 By default image is build with enabled autoupdate feature (take a look at `csgo.sh` file).
 You can create new Dockerfile based on that image (FROM csgo) and customize it with plugins, configs, CMD and ENTRYPOINT instructions.
 
-#ToDo Update
-#Changes broke below commands
+#Todo - Update
+#Fork changes broke commands
 
 ```shell
 # Run image with default options (CMD in Dockerfile)
